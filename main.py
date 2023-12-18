@@ -30,9 +30,9 @@ async def create_chat(chat: Chat):
      + "<|im_start|>assistant\n"
     output = llm(
         formatted_messages,  # Prompt
-        max_tokens=512,  # Generate up to 512 tokens
+        max_tokens=16384,  # Generate up to 16384 tokens (note: mixtral base was, I believe, 32k, dolphin fine-tuned 16k)
         stop=["</s>"],   # Example stop token - not necessarily correct for this specific model! Please check before using.
-        echo=True        # Whether to echo the prompt
+        echo=False        # Whether to echo the prompt
     )
     return {"output": output}
 
