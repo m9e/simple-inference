@@ -21,7 +21,7 @@ llm = Llama(
     model_path="/var/models/TheBloke/dolphin-2.5-mixtral-8x7b-GGUF/dolphin-2.5-mixtral-8x7b.Q6_K.gguf",  # Download the model file first
     n_ctx=32768,  # The max sequence length to use - note that longer sequence lengths require much more resources
     n_threads=8,            # The number of CPU threads to use, tailor to your system and the resulting performance
-    n_gpu_layers=999         # The number of layers to offload to GPU, if you have GPU acceleration available
+    n_gpu_layers=99999         # The number of layers to offload to GPU, if you have GPU acceleration available
 )
 
 @app.post("/chat/")
@@ -36,3 +36,5 @@ async def create_chat(chat: Chat):
     )
     return {"output": output}
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
