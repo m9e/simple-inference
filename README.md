@@ -1,5 +1,9 @@
 Super simple FastAPI inference server for Dolphin (https://huggingface.co/TheBloke/dolphin-2.5-mixtral-8x7b-GGUF), running local OSX for me.
 
+Note that calling generate() repeatedly APPENDS that new user message to the conversation. (Of course the server is ignorant)
+
+client.reset() will truncate back to the system prompt
+
 Sample usage:
 
 ```
